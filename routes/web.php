@@ -53,6 +53,8 @@ Route::patch('admin/employe/{id}', [EmployeController::class, 'update'])->name('
 
 Route::get('admin/employe.objectif', [ObjectifController::class, 'index'])->name('admin.objectif')->middleware('is_admin');
 Route::get('admin/employe.tache', [ObjectifController::class, 'ouvreTache'])->name('admin.tache')->middleware('is_admin');
+Route::get('admin/employe.objectifView/{id}', [ObjectifController::class, 'objectifView'])->name('admin.objectifView')->middleware('is_admin');
+
 
 
 

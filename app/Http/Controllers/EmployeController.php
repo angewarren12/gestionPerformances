@@ -14,12 +14,12 @@ class EmployeController extends Controller
     public function index()
     {   
         $employe=User::orderBy("name","asc")->get();
-        return view('admin.employe',compact("employe"));
+        return view('admin.employe.employe',compact("employe"));
     }
     public function ajoutEmploye()
     {
        
-        return view('admin.createEmploye');
+        return view('admin.employe.createEmploye');
     }
 
     public function store(Request $request)
@@ -76,7 +76,7 @@ class EmployeController extends Controller
                 );
         }
         
-        return redirect()->route('admin.employe')
+        return redirect()->route('admin.employe.employe')
         ->with('success','employe ajouté avec  succes');
     }
 
@@ -140,14 +140,14 @@ class EmployeController extends Controller
     public function edit($id){
         $user = User::findOrFail($id);
 
-        return view('admin.edit', compact('user'));
+        return view('admin.employe.edit', compact('user'));
 
     }
 
     public function delete(User $user){
         $user->delete();
 
-        return redirect()->route('admin.employe')
+        return redirect()->route('admin.employe.employe')
                         ->with('success','employe deleted successfully');
     }
 
@@ -175,7 +175,7 @@ class EmployeController extends Controller
         
         
     
-        return view('admin.profile')->with(compact('user','objectif','emp_obj'));
+        return view('admin.employe.profile')->with(compact('user','objectif','emp_obj'));
     }
     
 

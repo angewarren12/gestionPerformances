@@ -115,13 +115,13 @@
                                             aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#" data-toggle="modal"
-                                                data-target="#edit_project"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                data-target="#edit_project"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
                                             <a class="dropdown-item" href="#" data-toggle="modal"
                                                 data-target="#delete_project"><i class="fa fa-trash-o m-r-5"></i>
-                                                Delete</a>
+                                                Supprimer</a>
                                         </div>
                                     </div>
-                                    <h4 class="project-title"><a href="project-view.html">{{ $objectifs->titre }}</a>
+                                    <h4 class="project-title"><a href="{{route('admin.objectifView',$objectifs->id)}}">{{ $objectifs->titre }}</a>
                                     </h4>
                                     <small class="block text-ellipsis m-b-15">
                                         <span class="text-xs">12</span> <span class="text-muted">open tasks, </span>

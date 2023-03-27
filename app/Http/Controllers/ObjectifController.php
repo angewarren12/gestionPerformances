@@ -18,7 +18,18 @@ class ObjectifController extends Controller
         ->get();
         
 
-        return view('admin.objectif')->with(compact('objectif'));
+        return view('admin.objectif.objectif')->with(compact('objectif'));
         
     }
+
+    public function objectifView($id)
+    {
+        $objectif=Objectif::find($id);
+        
+
+        return view('admin.objectif.objectifView');
+        
+    }
+
 }
+
