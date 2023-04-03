@@ -52,6 +52,7 @@
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
     <title>Employees - HRMS admin template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
@@ -106,12 +107,20 @@
                         <h3 class="page-title">{{ $objectif->titre }}</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Project</li>
+                            <li class="breadcrumb-item active">Objectif</li>
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#edit_project"><i class="fa fa-plus"></i> Edit Project</a>
-                        <a href="task-board.html" class="btn btn-white float-right m-r-10" data-toggle="tooltip" title="Task Board"><i class="fa fa-bars"></i></a>
+                       
+
+                        <form  action="{{route('delete.objectif',$objectif->id)}}" method="POST">
+                            <a href="{{ route('admin.objectifUpdate',$objectif->id) }}" class="btn add-btn" ><i class="fa fa-plus"></i> Modifier l'objectif</a>
+                            @csrf
+                            @method('DELETE')
+                            <a class="btn btn-warning" type="submit"><i class="fa fa-trash-o m-r-5"></i> Supprimer </a>
+                        </form>
+                        
+
                     </div>
                 </div>
             </div>
@@ -122,116 +131,19 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="project-title">
-                                <h5 class="card-title">Hospital Administration</h5>
-                                <small class="block text-ellipsis m-b-15"><span class="text-xs">2</span> <span class="text-muted">open tasks, </span><span class="text-xs">5</span> <span class="text-muted">tasks completed</span></small>
+                                <h5 class="card-title">{{ $objectif->titre }}</h5>
+                                <small class="block text-ellipsis m-b-15"><span class="text-xs">2</span> <span class="text-muted">Taches ouvertes, </span><span class="text-xs">5</span> <span class="text-muted">tasks completed</span></small>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum sollicitudin libero vitae est consectetur, a molestie tortor consectetur. Aenean tincidunt interdum ipsum, id pellentesque diam suscipit ut. Vivamus massa mi, fermentum eget neque eget, imperdiet tristique lectus. Proin at purus ut sem pellentesque tempor sit amet ut lectus. Sed orci augue, placerat et pretium ac, hendrerit in felis. Integer scelerisque libero non metus commodo, et hendrerit diam aliquet. Proin tincidunt porttitor ligula, a tincidunt orci pellentesque nec. Ut ultricies maximus nulla id consequat. Fusce eu consequat mi, eu euismod ligula. Aliquam porttitor neque id massa porttitor, a pretium velit vehicula. Morbi volutpat tincidunt urna, vel ullamcorper ligula fermentum at. </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum sollicitudin libero vitae est consectetur, a molestie tortor consectetur. Aenean tincidunt interdum ipsum, id pellentesque diam suscipit ut. Vivamus massa mi, fermentum eget neque eget, imperdiet tristique lectus. Proin at purus ut sem pellentesque tempor sit amet ut lectus. Sed orci augue, placerat et pretium ac, hendrerit in felis. Integer scelerisque libero non metus commodo, et hendrerit diam aliquet. Proin tincidunt porttitor ligula, a tincidunt orci pellentesque nec. Ut ultricies maximus nulla id consequat. Fusce eu consequat mi, eu euismod ligula. Aliquam porttitor neque id massa porttitor, a pretium velit vehicula. Morbi volutpat tincidunt urna, vel ullamcorper ligula fermentum at. </p>
+                            {{ $objectif->description }}
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title m-b-20">Uploaded image files</h5>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4 col-lg-4 col-xl-3">
-                                    <div class="uploaded-box">
-                                        <div class="uploaded-img">
-                                            <img src="assets/img/placeholder.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="uploaded-img-name">
-                                             demo.png
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-lg-4 col-xl-3">
-                                    <div class="uploaded-box">
-                                        <div class="uploaded-img">
-                                            <img src="assets/img/placeholder.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="uploaded-img-name">
-                                             demo.png
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-lg-4 col-xl-3">
-                                    <div class="uploaded-box">
-                                        <div class="uploaded-img">
-                                            <img src="assets/img/placeholder.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="uploaded-img-name">
-                                             demo.png
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-lg-4 col-xl-3">
-                                    <div class="uploaded-box">
-                                        <div class="uploaded-img">
-                                            <img src="assets/img/placeholder.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="uploaded-img-name">
-                                             demo.png
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title m-b-20">Uploaded files</h5>
-                            <ul class="files-list">
-                                <li>
-                                    <div class="files-cont">
-                                        <div class="file-type">
-                                            <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
-                                        </div>
-                                        <div class="files-info">
-                                            <span class="file-name text-ellipsis"><a href="#">AHA Selfcare Mobile Application Test-Cases.xls</a></span>
-                                            <span class="file-author"><a href="#">John Doe</a></span> <span class="file-date">May 31st at 6:53 PM</span>
-                                            <div class="file-size">Size: 14.8Mb</div>
-                                        </div>
-                                        <ul class="files-action">
-                                            <li class="dropdown dropdown-action">
-                                                <a href="" class="dropdown-toggle btn btn-link" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#share_files">Share</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delete</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="files-cont">
-                                        <div class="file-type">
-                                            <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
-                                        </div>
-                                        <div class="files-info">
-                                            <span class="file-name text-ellipsis"><a href="#">AHA Selfcare Mobile Application Test-Cases.xls</a></span>
-                                            <span class="file-author"><a href="#">Richard Miles</a></span> <span class="file-date">May 31st at 6:53 PM</span>
-                                            <div class="file-size">Size: 14.8Mb</div>
-                                        </div>
-                                        <ul class="files-action">
-                                            <li class="dropdown dropdown-action">
-                                                <a href="" class="dropdown-toggle btn btn-link" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#share_files">Share</a>
-                                                    <a class="dropdown-item" href="javascript:void(0)">Delete</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                   
+                
                     <div class="project-task">
                         <ul class="nav nav-tabs nav-tabs-top nav-justified mb-0">
-                            <li class="nav-item"><a class="nav-link active" href="#all_tasks" data-toggle="tab" aria-expanded="true">All Tasks</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#pending_tasks" data-toggle="tab" aria-expanded="false">Pending Tasks</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#completed_tasks" data-toggle="tab" aria-expanded="false">Completed Tasks</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#all_tasks" data-toggle="tab" aria-expanded="true">Toutes les taches</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#pending_tasks" data-toggle="tab" aria-expanded="false">Taches en attente </a></li>
+                            <li class="nav-item"><a class="nav-link" href="#completed_tasks" data-toggle="tab" aria-expanded="false">Taches terminé</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="all_tasks">
@@ -239,114 +151,18 @@
                                     <div class="task-list-container">
                                         <div class="task-list-body">
                                             <ul id="task-list">
+                                                @foreach ($tache_all as $tache_alls) 
                                                 <li class="task">
                                                     <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label" contenteditable="true">Patient appointment booking</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
+                                                        
+                                                        <span class="task-label" contenteditable="true"> {{ $tache_alls->libele }}</span>
+                                                        <span class="task-label" contenteditable="true">{{ $tache_alls->date_fin }}</span>
+                                                        
+
+                                                        
                                                     </div>
                                                 </li>
-                                                <li class="task">
-                                                    <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label" contenteditable="true">Appointment booking with payment gateway</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="completed task">
-                                                    <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label">Doctor available module</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="task">
-                                                    <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label" contenteditable="true">Patient and Doctor video conferencing</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="task">
-                                                    <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label" contenteditable="true">Private chat module</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </li>
-                                                <li class="task">
-                                                    <div class="task-container">
-                                                        <span class="task-action-btn task-check">
-                                                            <span class="action-circle large complete-btn" title="Mark Complete">
-                                                                <i class="material-icons">check</i>
-                                                            </span>
-                                                        </span>
-                                                        <span class="task-label" contenteditable="true">Patient Profile add</span>
-                                                        <span class="task-action-btn task-btn-right">
-                                                            <span class="action-circle large" title="Assign">
-                                                                <i class="material-icons">person_add</i>
-                                                            </span>
-                                                            <span class="action-circle large delete-btn" title="Delete Task">
-                                                                <i class="material-icons">delete</i>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </li>
+                                                @endforeach 
                                             </ul>
                                         </div>
                                         <div class="task-list-footer">
@@ -360,133 +176,144 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="pending_tasks"></div>
-                            <div class="tab-pane" id="completed_tasks"></div>
+                            <div class="tab-pane" id="pending_tasks">
+
+                                <div class="task-wrapper">
+                                    <div class="task-list-container">
+                                        <div class="task-list-body">
+                                            <ul id="task-list">
+                                                @foreach ($pending_tasks as $pending_task) 
+                                                <li class="task">
+                                                    <div class="task-container">
+                                                        
+                                                        <span class="task-label" contenteditable="true"> {{ $pending_task->libele }}</span>
+                                                        <span class="task-label" contenteditable="true">Deadline: {{ $pending_task->date_fin }}</span>
+                                                        
+                                                        <form action="" method="post">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name='status' {{ $pending_task->status }}>
+                                                           
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                                @endforeach 
+                                            </ul>
+                                        </div>
+                                        <div class="task-list-footer">
+                                            <div class="new-task-wrapper">
+                                                <textarea  id="new-task" placeholder="Enter new task here. . ."></textarea>
+                                                <span class="error-message hidden">You need to enter a task first</span>
+                                                <span class="add-new-task-btn btn" id="add-task">Add Task</span>
+                                                <span class="btn" id="close-task-panel">Close</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="completed_tasks">
+                                <div class="task-wrapper">
+                                    <div class="task-list-container">
+                                        <div class="task-list-body">
+                                            <ul id="task-list">
+                                                @foreach ($completed_tasks as $completed_task) 
+                                                <li class="task">
+                                                    <div class="task-container">
+                                                        
+                                                        <span class="task-label" contenteditable="true"> {{ $completed_task->libele }}</span>
+                                                        <span class="task-label" contenteditable="true">Deadline: {{ $completed_task->date_fin }}</span>
+                                                        
+
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" {{ $completed_task->date_fin }} >
+
+                                                           
+                                                          </div>
+                                                    </div>
+                                                </li>
+                                                @endforeach 
+                                            </ul>
+                                        </div>
+                                        <div class="task-list-footer">
+                                            <div class="new-task-wrapper">
+                                                <textarea  id="new-task" placeholder="Enter new task here. . ."></textarea>
+                                                <span class="error-message hidden">You need to enter a task first</span>
+                                                <span class="add-new-task-btn btn" id="add-task">Add Task</span>
+                                                <span class="btn" id="close-task-panel">Close</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title m-b-15">Project details</h6>
+                            <h6 class="card-title m-b-15">Detail de l'Objectif</h6>
                             <table class="table table-striped table-border">
                                 <tbody>
+                                    
+                                   
                                     <tr>
-                                        <td>Cost:</td>
-                                        <td class="text-right">$1200</td>
+                                        <td>Debut:</td>
+                                        <td class="text-right">{{ $objectif->date_debut }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Total Hours:</td>
-                                        <td class="text-right">100 Hours</td>
+                                        <td>fin:</td>
+                                        <td class="text-right">{{ $objectif->date_fin }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Created:</td>
-                                        <td class="text-right">25 Feb, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Deadline:</td>
-                                        <td class="text-right">12 Jun, 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Priority:</td>
+                                        <td>Statut:</td>
                                         <td class="text-right">
                                             <div class="btn-group">
-                                                <a href="#" class="badge badge-danger dropdown-toggle" data-toggle="dropdown">Highest </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-danger"></i> Highest priority</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-info"></i> High priority</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-primary"></i> Normal priority</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-dot-circle-o text-success"></i> Low priority</a>
-                                                </div>
+                                                <a href="#" class="badge badge-danger " >{{ $objectif->status }}</a>
+                                                
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Created by:</td>
-                                        <td class="text-right"><a href="profile.html">Barry Cuda</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status:</td>
-                                        <td class="text-right">Working</td>
-                                    </tr>
+                                   
+                                    
                                 </tbody>
                             </table>
-                            <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                            <p class="m-b-5">Progression <span class="text-success float-right">{{ $objectif->progression}}%</span></p>
                             <div class="progress progress-xs mb-0">
-                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="40%" style="width: 40%"></div>
+                                <div class="progress-bar bg-success" role="progressbar" data-toggle="tooltip" title="{{ $objectif->progression }}%" style="width: {{ $objectif->progression }}%"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="card project-user">
-                        <div class="card-body">
-                            <h6 class="card-title m-b-20">Assigned Leader <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#assign_leader"><i class="fa fa-plus"></i> Add</button></h6>
-                            <ul class="list-box">
-                                <li>
-                                    <a href="profile.html">
-                                        <div class="list-item">
-                                            <div class="list-left">
-                                                <span class="avatar"><img alt="" src="assets/img/profiles/avatar-11.jpg"></span>
-                                            </div>
-                                            <div class="list-body">
-                                                <span class="message-author">Wilmer Deluna</span>
-                                                <div class="clearfix"></div>
-                                                <span class="message-content">Team Leader</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="profile.html">
-                                        <div class="list-item">
-                                            <div class="list-left">
-                                                <span class="avatar"><img alt="" src="assets/img/profiles/avatar-01.jpg"></span>
-                                            </div>
-                                            <div class="list-body">
-                                                <span class="message-author">Lesley Grauer</span>
-                                                <div class="clearfix"></div>
-                                                <span class="message-content">Team Leader</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <div class="card project-user">
                         <div class="card-body">
                             <h6 class="card-title m-b-20">
-                                Assigned users 
-                                <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#assign_user"><i class="fa fa-plus"></i> Add</button>
+                                Utilisateur Assignés 
+                                <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#assigner_user"><i class="fa fa-plus"></i> Add</button>
                             </h6>
                             <ul class="list-box">
+                                
+                                @foreach ($user_obj as $user_objs)
                                 <li>
                                     <a href="profile.html">
                                         <div class="list-item">
                                             <div class="list-left">
-                                                <span class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></span>
+                                               <a href=""><span class="avatar"><img alt="" src="{{ $user_objs->avatar }}"></span></a> 
                                             </div>
                                             <div class="list-body">
-                                                <span class="message-author">John Doe</span>
+                                                
+                                                    
+                                               
+                                                <span class="message-author">{{ $user_objs->prenom }}</span>
                                                 <div class="clearfix"></div>
-                                                <span class="message-content">Web Designer</span>
+                                                <span class="message-content">{{$user_objs->poste}}</span>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="profile.html">
-                                        <div class="list-item">
-                                            <div class="list-left">
-                                                <span class="avatar"><img alt="" src="assets/img/profiles/avatar-09.jpg"></span>
-                                            </div>
-                                            <div class="list-body">
-                                                <span class="message-author">Richard Miles</span>
-                                                <div class="clearfix"></div>
-                                                <span class="message-content">Web Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                @endforeach
+                             
                             </ul>
                         </div>
                     </div>
@@ -495,77 +322,14 @@
         </div>
         <!-- /Page Content -->
         
-        <!-- Assign Leader Modal -->
-        <div id="assign_leader" class="modal custom-modal fade" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Assign Leader to this project</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group m-b-30">
-                            <input placeholder="Search to add a leader" class="form-control search-input" type="text">
-                            <span class="input-group-append">
-                                <button class="btn btn-primary">Search</button>
-                            </span>
-                        </div>
-                        <div>
-                            <ul class="chat-user-list">
-                                <li>
-                                    <a href="#">
-                                        <div class="media">
-                                            <span class="avatar"><img alt="" src="assets/img/profiles/avatar-09.jpg"></span>
-                                            <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">Richard Miles</div>
-                                                <span class="designation">Web Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="media">
-                                            <span class="avatar"><img alt="" src="assets/img/profiles/avatar-10.jpg"></span>
-                                            <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">John Smith</div>
-                                                <span class="designation">Android Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="media">
-                                            <span class="avatar">
-                                                <img alt="" src="assets/img/profiles/avatar-16.jpg">
-                                            </span>
-                                            <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">Jeffery Lalor</div>
-                                                <span class="designation">Team Leader</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="submit-section">
-                            <button class="btn btn-primary submit-btn">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Assign Leader Modal -->
+       
         
         <!-- Assign User Modal -->
-        <div id="assign_user" class="modal custom-modal fade" role="dialog">
+        <div id="assigner_user" class="modal fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Assign the user to this project</h5>
+                        <h5 class="modal-title">Assigner des utilisateur a l'Objectif</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -578,42 +342,25 @@
                             </span>
                         </div>
                         <div>
+                            
                             <ul class="chat-user-list">
-                                <li>
-                                    <a href="#">
-                                        <div class="media">
-                                            <span class="avatar"><img alt="" src="assets/img/profiles/avatar-09.jpg"></span>
-                                            <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">Richard Miles</div>
-                                                <span class="designation">Web Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="media">
-                                            <span class="avatar"><img alt="" src="assets/img/profiles/avatar-10.jpg"></span>
-                                            <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">John Smith</div>
-                                                <span class="designation">Android Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                @foreach ($liste_user as $liste_users)
+                                    
+                                
                                 <li>
                                     <a href="#">
                                         <div class="media">
                                             <span class="avatar">
-                                                <img alt="" src="assets/img/profiles/avatar-16.jpg">
+                                                <img alt="{{ route('admin.objectifViewAssigner',$liste_users->id)}}" src="{{ $liste_users->avatar }} ">
                                             </span>
                                             <div class="media-body align-self-center text-nowrap">
-                                                <div class="user-name">Jeffery Lalor</div>
-                                                <span class="designation">Team Leader</span>
+                                                <div class="user-name"><a href="{{route('admin.objectifView',$liste_users->id)}}">{{ $liste_users->name }} {{ $liste_users->prenom }}</a>    </div>
+                                                <span class="designation">{{ $liste_users->poste }}</span>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="submit-section">
@@ -636,11 +383,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form method="post" action="">
+                            @csrf
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Project Name</label>
+                                        <label>Titre de l'objectif</label>
                                         <input class="form-control" value="Project Management" type="text">
                                     </div>
                                 </div>
@@ -794,26 +542,3 @@
 </html>
 
 
-    <!-- jQuery -->
-    <script src="{{ asset('../assets/js/jquery-3.5.1.min.js') }}"></script>
-
-    <!-- Bootstrap Core JS -->
-    <script src="{{ asset('../assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('../assets/js/bootstrap.min.js') }}"></script>
-
-    <!-- Slimscroll JS -->
-    <script src="{{ asset('../assets/js/jquery.slimscroll.min.js') }}"></script>
-
-    <!-- Select2 JS -->
-    <script src="{{ asset('../assets/js/select2.min.js') }}"></script>
-
-    <!-- Datetimepicker JS -->
-    <script src="{{ asset('../assets/js/moment.min.js') }}"></script>
-    <script src="{{ asset('../assets/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-    <!-- Custom JS -->
-    <script src="{{ asset('../assets/js/app.js') }}"></script>
-
-</body>
-
-</html>

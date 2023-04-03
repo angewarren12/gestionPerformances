@@ -21,6 +21,11 @@ class Objectif extends Model
     ];
     use HasFactory;
     public function user(){
-        return $this->belongsToMany(User::class,'employe_objectif','user_id','objectif_id');
+        return $this->belongsToMany(User::class,'employe_objectif','objectif_id','user_id');
+    }
+
+    public function tache(){
+        return $this->hasMany(Tache::class);
+
     }
 }

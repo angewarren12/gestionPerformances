@@ -122,7 +122,7 @@
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label class="col-form-label">Nom <span class="text-danger">*</span></label>
-                                                                    <input class="form-control" name="name" type="text" value="">
+                                                                    <input class="form-control" name="nom" type="text" value="">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">

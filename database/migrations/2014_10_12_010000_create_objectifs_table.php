@@ -19,8 +19,8 @@ class CreateObjectifsTable extends Migration
             $table->string('description');
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->string('status');
-            $table->string('progression');
+            $table->string('status')->default('En cours');
+            $table->string('progression')->default('0');
 
             
             $table->timestamps();

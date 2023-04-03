@@ -58,4 +58,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Objectif::class,'employe_objectif','user_id','objectif_id');
 
     }
+    public function taches(){
+        return $this->hasMany(Tache::class);
+
+    }
 }

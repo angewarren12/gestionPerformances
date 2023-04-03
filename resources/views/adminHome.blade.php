@@ -71,7 +71,7 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>112</h3>
+                                        <h3>{{ $objectifCount }}</h3>
                                         <span>Objectifs</span>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>218</h3>
+                                        <h3>{{ $userCount }}</h3>
                                         <span>Employés</span>
                                     </div>
                                 </div>

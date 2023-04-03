@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="Smarthr - Bootstrap Admin Template">
-    <meta name="keywords"
-        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <meta name="keywords">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
     <title>Employees - HRMS admin template</title>
@@ -68,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="col-auto float-right ml-auto">
-                            <a href="#" class="btn add-btn" data-toggle="modal" data-target="#create_project"><i
+                            <a href="{{ route('admin.objectifCreate') }}" class="btn add-btn" ><i
                                     class="fa fa-plus"></i> Creer un objectif</a>
                             <div class="view-icons">
                                 <a href="projects.html" class="grid-view btn btn-link active"><i
@@ -97,7 +96,7 @@
                     </div>
                    
                     <div class="col-sm-6 col-md-3">
-                        <a href="#" class="btn btn-success btn-block"> Search </a>
+                        <a href="#" class="btn btn-success btn-block"> Rechercher </a>
                     </div>
                 </div>
                 <!-- Search Filter -->
@@ -112,10 +111,10 @@
                                 <div class="card-body">
                                     <div class="dropdown dropdown-action profile-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                            aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                            aria-expanded="false"><i class="material-icons"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="#" data-toggle="modal"
-                                                data-target="#edit_project"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+                                                data-target="#edit_project"><i class="fa fa-pencil m-r-5"></i>Modifier</a>
                                             <a class="dropdown-item" href="#" data-toggle="modal"
                                                 data-target="#delete_project"><i class="fa fa-trash-o m-r-5"></i>
                                                 Supprimer</a>
@@ -229,130 +228,45 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form method="post" action="{{ route('admin.objectifStore') }}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Project Name</label>
-                                            <input class="form-control" type="text">
+                                            <label>Titre  Objectif</label>
+                                            <input class="form-control" type="text" name="titre">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Client</label>
-                                            <select class="select">
-                                                <option>Global Technologies</option>
-                                                <option>Delta Infotech</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Start Date</label>
+                                            <label>Date de debut</label>
                                             <div class="cal-icon">
-                                                <input class="form-control datetimepicker" type="text">
+                                                <input class="form-control datetimepicker" type="text" name="date_debut">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>End Date</label>
+                                            <label>Date de fin</label>
                                             <div class="cal-icon">
-                                                <input class="form-control datetimepicker" type="text">
+                                                <input class="form-control datetimepicker" type="text" name="date_fin">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Rate</label>
-                                            <input placeholder="$50" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>&nbsp;</label>
-                                            <select class="select">
-                                                <option>Hourly</option>
-                                                <option>Fixed</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Priority</label>
-                                            <select class="select">
-                                                <option>High</option>
-                                                <option>Medium</option>
-                                                <option>Low</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Add Project Leader</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Team Leader</label>
-                                            <div class="project-members">
-                                                <a href="#" data-toggle="tooltip" title="Jeffery Lalor"
-                                                    class="avatar">
-                                                    <img src="assets/img/profiles/avatar-16.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Add Team</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Team Members</label>
-                                            <div class="project-members">
-                                                <a href="#" data-toggle="tooltip" title="John Doe"
-                                                    class="avatar">
-                                                    <img src="assets/img/profiles/avatar-16.jpg" alt="">
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" title="Richard Miles"
-                                                    class="avatar">
-                                                    <img src="assets/img/profiles/avatar-09.jpg" alt="">
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" title="John Smith"
-                                                    class="avatar">
-                                                    <img src="assets/img/profiles/avatar-10.jpg" alt="">
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" title="Mike Litorus"
-                                                    class="avatar">
-                                                    <img src="assets/img/profiles/avatar-05.jpg" alt="">
-                                                </a>
-                                                <span class="all-team">+2</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+                               
+                                
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea rows="4" class="form-control summernote" placeholder="Enter your message here"></textarea>
+                                    <textarea rows="4" class="form-control summernote" placeholder="Enter your message here" name="description"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label>Upload Files</label>
-                                    <input class="form-control" type="file">
-                                </div>
+                            
                                 <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                    <button class="btn btn-primary submit-btn">Valider</button>
                                 </div>
                             </form>
                         </div>
@@ -543,6 +457,7 @@
     <!-- Bootstrap Core JS -->
     <script src="{{ asset('../assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('../assets/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Slimscroll JS -->
     <script src="{{ asset('../assets/js/jquery.slimscroll.min.js') }}"></script>

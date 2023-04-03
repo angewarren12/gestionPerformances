@@ -138,7 +138,7 @@
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <span class="user-img"><img src="{{asset(Auth::user()->avatar)}}" alt="">
                 <span class="status online"></span></span>
-                <span>{{ Auth::user()->name }}</span>
+                <span>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
             </a>
             <div class="dropdown-menu">
                 @guest

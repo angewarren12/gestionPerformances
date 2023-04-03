@@ -74,7 +74,11 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
+					<div class="alert-alert-danger">
+						@if (session()->has('successDelete'))
+						{{session()->get('successDelete')}}
+						@endif
+					</div>
 					<!-- Search Filter -->
 					<div class="row filter-row">
 						<div class="col-sm-6 col-md-3">  
@@ -111,11 +115,8 @@
 						
 						@foreach ($employe as $employes )
 							
-						<div class="alert-alert-danger">
-							@if (session()->has('successDelete'))
-							{{session()->get('successDelete')}}
-						@endif
-						</div>
+						
+						
 						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
 							<div class="profile-widget">
 								<div class="profile-img">
@@ -133,7 +134,7 @@
 										</form>
 									</div>
 								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="{{route('profile.employe',$employes->id)}}">{{$employes->name}} {{$employes->prenom}}</a></h4>
+								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="{{route('profile.employe',$employes->id)}}">{{$employes->nom}} {{$employes->prenom}}</a></h4>
 								<div class="small text-muted">{{$employes->poste}}</div>
 							</div>
 						</div>

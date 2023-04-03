@@ -83,9 +83,9 @@
 											<div class="row">
 												<div class="col-md-5">
 													<div class="profile-info-left">
-														<h3 class="user-name m-t-0 mb-0">{{ $user->name }} {{ $user->prenom }}</h3>
+														<h3 class="user-name m-t-0 mb-0">{{ $user->nom }} {{ $user->prenom }}</h3>
 														<small class="text-muted">{{ $user->poste }}</small>
-														<div class="staff-id">Employee ID : FT-0001</div>
+														<div class="staff-id">Matricule : {{ $user->matricule }}</div>
 														<div class="staff-msg"><a class="btn btn-custom" href="#">Send Message</a></div>
 													</div>
 												</div>

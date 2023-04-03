@@ -13,7 +13,7 @@ class EmployeController extends Controller
 {
     public function index()
     {   
-        $employe=User::orderBy("name","asc")->get();
+        $employe=User::orderBy("nom","asc")->get();
         return view('admin.employe.employe',compact("employe"));
     }
     public function ajoutEmploye()
@@ -27,7 +27,7 @@ class EmployeController extends Controller
 
 
         $userData =$request->validate([
-        'name'=>'required',
+        'nom'=>'required',
         'prenom'=>'required',
         'date_naissance'=>'required',
         'contact'=>'required',
@@ -47,7 +47,7 @@ class EmployeController extends Controller
         $avatarPath=public_path('/assets/img/profiles/');
         $avatarUpload->move($avatarPath,$avatarName);
          User::create([
-            "name"=>$request->name,
+            "nom"=>$request->nom,
             "prenom"=>$request->prenom,
             "date_naissance"=>$request->date_naissance,
             "contact"=>$request->contact,
@@ -61,7 +61,7 @@ class EmployeController extends Controller
            ]);
         }else{
             User::create([
-                "name"=>$request->name,
+                "nom"=>$request->nom,
                 "prenom"=>$request->prenom,
                 "date_naissance"=>$request->date_naissance,
                 "contact"=>$request->contact,
@@ -76,13 +76,13 @@ class EmployeController extends Controller
                 );
         }
         
-        return redirect()->route('admin.employe.employe')
+        return redirect()->route('admin.objectif')
         ->with('success','employe ajouté avec  succes');
     }
 
     public function update(Request $request, User $user){
         $userData =$request->validate([
-            'name'=>'required',
+            'nom'=>'required',
             'prenom'=>'required',
             'date_naissance'=>'required',
             'matricule'=>'required',
@@ -102,7 +102,7 @@ class EmployeController extends Controller
             $avatarPath=public_path('/assets/img/profiles/');
             $avatarUpload->move($avatarPath,$avatarName);
             $user->update([
-                "name"=>$request->name,
+                "nom"=>$request->name,
                 "prenom"=>$request->prenom,
                 "date_naissance"=>$request->date_naissance,
                 "matricule"=>$request->matricule,
@@ -117,7 +117,7 @@ class EmployeController extends Controller
                ]);
             }else{
                 $user->update([
-                    "name"=>$request->name,
+                    "nom"=>$request->name,
                     "prenom"=>$request->prenom,
                     "date_naissance"=>$request->date_naissance,
                     "matricule"=>$request->matricule,
@@ -144,11 +144,12 @@ class EmployeController extends Controller
 
     }
 
-    public function delete(User $user){
-        $user->delete();
+    public function delete($id){
+        $crud = User::find($id);  
+        
+        $crud->delete();
 
-        return redirect()->route('admin.employe.employe')
-                        ->with('success','employe deleted successfully');
+        return back()->with('success','employe deleted successfully');
     }
 
 
